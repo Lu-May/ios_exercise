@@ -7,39 +7,32 @@
 
 import UIKit
 class DataViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
-   
-    override func viewDidLoad() {
-      super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.delegate = self
+  @IBOutlet weak var tableView: UITableView!
+  let queryService = QueryService()
+  var tweet: [Tweet] = []
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    tableView.dataSource = self
+    queryService.getSearchResults() { tweets,_ in
+      self.tweet = tweets!
+      self.tableView.reloadData()
     }
-    
+  }
 }
 
 
 extension DataViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    
-    return 1
+    return tweet.count
   }
-
+  
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: "DataCell", for: indexPath) as? DataCell else {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as? TweetCell else {
       return UITableViewCell()
     }
     
-//    cell.configure(with: datas[indexPath.row])
+    cell.configure(with: tweet[indexPath.row])
     return cell
   }
 }
-
-extension DataViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let alert = UIAlertController(title: "\(datas[indexPath.row].name)", message: "\(datas[indexPath.row].phone)", preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-//             }))
-//             self.present(alert, animated: true, completion: nil)
-//        }
-}
-
