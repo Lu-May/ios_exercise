@@ -21,28 +21,38 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="107" id="ZE0-gE-Vnb" customClass="TweetCell" customModule="Networking" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="107"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="40" reuseIdentifier="TweetCell" rowHeight="120" id="ZE0-gE-Vnb" customClass="TweetCell" customModule="Networking" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZE0-gE-Vnb" id="6at-gq-Dod">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="107"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xH-Xz-JVO">
-                                                    <rect key="frame" x="20" y="44" width="374" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0UC-qa-fgE">
+                                                    <rect key="frame" x="20" y="21" width="394" height="53"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xH-Xz-JVO">
+                                                    <rect key="frame" x="20" y="75" width="374" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <size key="shadowOffset" width="0.0" height="10"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="6xH-Xz-JVO" firstAttribute="leading" secondItem="6at-gq-Dod" secondAttribute="leadingMargin" id="LRn-3M-kET"/>
-                                                <constraint firstItem="6xH-Xz-JVO" firstAttribute="centerY" secondItem="6at-gq-Dod" secondAttribute="centerY" constant="1" id="jN6-XH-EHg"/>
+                                                <constraint firstItem="0UC-qa-fgE" firstAttribute="leading" secondItem="6at-gq-Dod" secondAttribute="leadingMargin" id="Rkd-GZ-6j7"/>
+                                                <constraint firstItem="0UC-qa-fgE" firstAttribute="centerY" secondItem="6at-gq-Dod" secondAttribute="centerY" constant="-12.5" id="hyr-dk-0Ek"/>
+                                                <constraint firstItem="6xH-Xz-JVO" firstAttribute="centerY" secondItem="6at-gq-Dod" secondAttribute="centerY" constant="19.25" id="jN6-XH-EHg"/>
                                                 <constraint firstItem="6xH-Xz-JVO" firstAttribute="width" secondItem="6at-gq-Dod" secondAttribute="width" constant="-40" id="vt9-iB-6Fy"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="content" destination="6xH-Xz-JVO" id="puq-Xn-Zi8"/>
+                                            <outlet property="sender" destination="0UC-qa-fgE" id="UR1-RH-jYz"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

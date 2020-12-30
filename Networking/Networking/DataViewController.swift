@@ -14,9 +14,10 @@ class DataViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.dataSource = self
-    queryService.getSearchResults() { tweets,_ in
-      self.tweet = tweets!
-      self.tableView.reloadData()
+    tableView.rowHeight = 70
+    queryService.getSearchResults() { [weak self] tweets,_ in
+      self?.tweet = tweets!
+      self?.tableView.reloadData()
     }
   }
 }

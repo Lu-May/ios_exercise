@@ -12,9 +12,6 @@ class QueryService {
   
   var dataTask: URLSessionDataTask?
   
-  var errorMessage = ""
-  var tweetDatas: [Tweet] = []
-  
   typealias JSONDictionary = [String: Any]
   typealias QueryResult = ([Tweet]?, String) -> Void
   
@@ -31,21 +28,23 @@ class QueryService {
           defer {
             self?.dataTask = nil
           }
+          var errorMessage = ""
+          var tweetDatas: [Tweet] = []
           if let error = error {
-            self?.errorMessage += "DataTask error: " +
+            errorMessage += "DataTask error: " +
               error.localizedDescription + "\n"
           } else if
             let tweet = data,
             let response = response as? HTTPURLResponse,
             response.statusCode == 200 {
             do {
-              self?.tweetDatas = try JSONDecoder().decode([Tweet].self, from: tweet)
+              tweetDatas = try JSONDecoder().decode([Tweet].self, from: tweet)
             } catch {
               print(error)
             }
           }
           DispatchQueue.main.async {
-            completion(self?.tweetDatas, self?.errorMessage ?? "")
+            completion(tweetDatas, errorMessage )
           }
         }
       dataTask?.resume()
