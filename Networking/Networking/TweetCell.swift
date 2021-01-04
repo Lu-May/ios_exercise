@@ -14,9 +14,9 @@ class TweetCell: UITableViewCell {
     sender.font = UIFont.systemFont(ofSize: 25)
     sender.text = tweet.sender?.nick
     content.text = tweet.content
-    if tweet.content == nil {
-      sender.numberOfLines = 2
-      sender.text = "\n\(String(describing: tweet.sender?.nick ?? ""))"
-    }
+//    if tweet.content == nil {
+//      sender.numberOfLines = 2
+//      sender.text = "\n\(String(describing: tweet.sender?.nick ?? ""))"
+//    }
   }
 }

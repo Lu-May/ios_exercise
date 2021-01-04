@@ -15,7 +15,7 @@ class DataViewController: UIViewController {
     super.viewDidLoad()
     tableView.dataSource = self
     tableView.rowHeight = 70
-    queryService.getSearchResults() { [weak self] tweets,_ in
+    queryService.getSearchResults() { [weak self] tweets, _ in
       self?.tweet = tweets!
       self?.tableView.reloadData()
     }
