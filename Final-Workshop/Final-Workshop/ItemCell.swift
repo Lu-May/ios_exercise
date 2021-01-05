@@ -44,12 +44,12 @@ class ItemCell: UITableViewCell {
   }
   
   func configure(with item: Item, promotion: [String], addItem: @escaping (Int) -> Void) {
+    self.addItem = addItem
     nameLable.text = item.name
     unitLable.text = "(单位:\(item.unit))"
     priceLable.text = "单价:\(item.price)"
     promotionLable?.text = promotion.contains(item.barcode) ? "买二送一" : ""
     
     setCountText(stepperInit(item.barcode))
-    self.addItem = addItem
   }
 }

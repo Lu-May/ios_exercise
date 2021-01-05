@@ -12,9 +12,9 @@ class ItemListViewController: UIViewController {
  
   let itemQueryService = ItemQueryService()
   let promotionQueryService = PromotionQueryService()
-  var item: [Item] = []
-  var purchaseditem: [String: Int] = [:]
-  var promotion: [String] = []
+  var items: [Item] = []
+  var purchasedItems: [PurchasedItem] = []
+  var promotions: [String] = []
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -22,11 +22,11 @@ class ItemListViewController: UIViewController {
 //    tableView.delegate = self
     self.title = "商品列表"
     itemQueryService.getSearchResults() { [weak self] items, _ in
-      self?.item = items!
+      self?.items = items!
       self?.tableView.reloadData()
     }
     promotionQueryService.getSearchResults() { [weak self] data, _ in
-      self?.promotion = data!
+      self?.promotions = data!
       self?.tableView.reloadData()
     }
   }
@@ -45,18 +45,19 @@ class ItemListViewController: UIViewController {
 
 extension ItemListViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return item.count
+    return items.count
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as? ItemCell else {
       return UITableViewCell()
     }
-    
-    let addItem = { value in
-      self.purchaseditem[self.item[indexPath.row].barcode] = value
+//    let addItem = { value in
+//      self.purchasedItems = [PurchasedItem(count: value, Subtotal: Double(value*self.items[indexPath.row].price), item: self.items)]
+//    }
+    cell.configure(with: items[indexPath.row], promotion: promotions) { value in
+      self.purchasedItems = [PurchasedItem(count: value, Subtotal: Float(value*self.items[indexPath.row].price), item: self.items)]
     }
-    cell.configure(with: item[indexPath.row], promotion: promotion, addItem: addItem)
 
     return cell
   }

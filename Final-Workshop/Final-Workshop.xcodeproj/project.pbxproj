@@ -22,6 +22,7 @@
 		7A24159425A305F800D90265 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A24159325A305F800D90265 /* ItemCell.swift */; };
 		7A24159925A30A1000D90265 /* ItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A24159825A30A1000D90265 /* ItemService.swift */; };
 		7A2415B625A409E900D90265 /* PromotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2415B525A409E900D90265 /* PromotionService.swift */; };
+		7A2415C325A462A900D90265 /* PurchasedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2415C225A462A900D90265 /* PurchasedItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		7A24159325A305F800D90265 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		7A24159825A30A1000D90265 /* ItemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemService.swift; sourceTree = "<group>"; };
 		7A2415B525A409E900D90265 /* PromotionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionService.swift; sourceTree = "<group>"; };
+		7A2415C225A462A900D90265 /* PurchasedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				7A24159325A305F800D90265 /* ItemCell.swift */,
 				7A24159825A30A1000D90265 /* ItemService.swift */,
 				7A2415B525A409E900D90265 /* PromotionService.swift */,
+				7A2415C225A462A900D90265 /* PurchasedItem.swift */,
 			);
 			path = "Final-Workshop";
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				7A24159925A30A1000D90265 /* ItemService.swift in Sources */,
 				7A24157A25A2EB8D00D90265 /* ReceiptViewController.swift in Sources */,
 				7A24157525A2EB2900D90265 /* CartPageViewController.swift in Sources */,
+				7A2415C325A462A900D90265 /* PurchasedItem.swift in Sources */,
 				7A24158725A3026400D90265 /* Item.swift in Sources */,
 				7A24154225A2E24B00D90265 /* AppDelegate.swift in Sources */,
 				7A24154425A2E24B00D90265 /* SceneDelegate.swift in Sources */,
