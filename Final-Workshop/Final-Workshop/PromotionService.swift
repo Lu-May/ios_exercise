@@ -1,25 +1,25 @@
 //
-//  ItemService.swift
+//  PromotionService.swift
 //  Final-Workshop
 //
-//  Created by Yuehuan Lu on 2021/1/4.
+//  Created by Yuehuan Lu on 2021/1/5.
 //
 
 import Foundation
 
-class ItemQueryService {
+class PromotionQueryService {
   let defaultSession = URLSession(configuration: .default)
   
   var dataTask: URLSessionDataTask?
   
   typealias JSONDictionary = [String: Any]
-  typealias ItemQueryResult = ([Item]?, String) -> Void
+  typealias PromotionQueryResult = ([String]?, String) -> Void
   
-  func getSearchResults(completion: @escaping ItemQueryResult) {
+  func getSearchResults(completion: @escaping PromotionQueryResult) {
     
     dataTask?.cancel()
     
-    if let urlComponents = URLComponents(string: "https://tw-mobile-xian.github.io/pos-api/items.json") {
+    if let urlComponents = URLComponents(string: "https://tw-mobile-xian.github.io/pos-api/promotions.json") {
       guard let url = urlComponents.url else {
         return
       }
@@ -29,26 +29,25 @@ class ItemQueryService {
             self?.dataTask = nil
           }
           var errorMessage = ""
-          var tweetDatas: [Item] = []
+          var promotionDatas: [String] = []
           if let error = error {
             errorMessage += "DataTask error: " +
               error.localizedDescription + "\n"
           } else if
-            let tweet = data,
+            let promotion = data,
             let response = response as? HTTPURLResponse,
             response.statusCode == 200 {
             do {
-              tweetDatas = try JSONDecoder().decode([Item].self, from: tweet)
+              promotionDatas = try JSONDecoder().decode([String].self, from: promotion)
             } catch {
               print(error)
             }
           }
           DispatchQueue.main.async {
-            completion(tweetDatas, errorMessage )
+            completion(promotionDatas, errorMessage )
           }
         }
       dataTask?.resume()
     }
   }
 }
-
