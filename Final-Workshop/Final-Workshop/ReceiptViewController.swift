@@ -13,7 +13,7 @@ class ReceiptViewController: UIViewController {
     super.viewDidLoad()
     self.title = "购物小票"
   }
- 
+  
   @IBAction func clickBackToItemList(_ sender: Any) {
     navigationController?.popViewController(animated: true)
   }

@@ -29,7 +29,7 @@ class ItemCell: UITableViewCell {
     
     //设置stepper可以按住不放来连续更改值
     stepper.isContinuous = true
-
+    
     stepper.addTarget(self, action: #selector(stepperValuesDidChanged(_:)), for: .valueChanged)
     return Int(stepper.value)
   }
@@ -47,7 +47,7 @@ class ItemCell: UITableViewCell {
     self.addItem = addItem
     nameLable.text = item.name
     unitLable.text = "(单位:\(item.unit))"
-    priceLable.text = "单价:\(item.price)"
+    priceLable.text = "单价:\(item.price)元"
     promotionLable?.text = promotion.contains(item.barcode) ? "买二送一" : ""
     
     setCountText(stepperInit(item.barcode))
