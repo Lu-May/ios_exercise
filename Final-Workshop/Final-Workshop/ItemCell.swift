@@ -47,7 +47,7 @@ class ItemCell: UITableViewCell {
     self.addItem = addItem
     nameLable.text = item.name
     unitLable.text = "(单位:\(item.unit))"
-    priceLable.text = "单价:\(item.price)元"
+    priceLable.text = "单价:¥\(item.price)"
     promotionLable?.text = promotion.contains(item.barcode) ? "买二送一" : ""
     
     setCountText(stepperInit(item.barcode))

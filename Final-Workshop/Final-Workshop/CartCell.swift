@@ -16,8 +16,8 @@ class CartCell: UITableViewCell {
   
   func configure(with purchasedItem: PurchasedItem) {
     nameLable.text = purchasedItem.item.name
-    priceLable.text = "\(String.init(format:"%.2f", purchasedItem.item.price))元"
+    priceLable.text = "¥\(String.init(format:"%.2f", purchasedItem.item.price))"
     countLable.text = "x\(purchasedItem.count)\(purchasedItem.item.unit)"
-    subtotalLable.text = "\(String.init(format:"%.2f", purchasedItem.subtotal))元"
+    subtotalLable.text = "¥\(String.init(format:"%.2f", purchasedItem.subtotal))"
   }
 }
