@@ -18,13 +18,14 @@ class CartPageViewController: UIViewController {
     tableView.dataSource = self
   }
   
-  func configure(with purchasedItems: [PurchasedItem], promotion: [String]) {
+  func configure(with purchasedItems: [PurchasedItem]) {
     self.purchasedItems = purchasedItems.filterDuplicates({$0.item.name})
   }
   
   @IBAction func clickForwardToReceiptPage(_ sender: Any) {
-    let cartPageViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ReceiptViewController")
-    show(cartPageViewController, sender: self)
+    let receiptViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ReceiptViewController") as ReceiptViewController
+    receiptViewController.configure(with: self.purchasedItems)
+    show(receiptViewController, sender: self)
   }
 }
 

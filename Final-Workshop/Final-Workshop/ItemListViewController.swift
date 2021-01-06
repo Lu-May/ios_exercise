@@ -32,9 +32,9 @@ class ItemListViewController: UIViewController {
   }
   
   @IBAction func clickOneButton(_ sender: Any) {
-    let oneViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "CartPageViewController") as CartPageViewController
-    oneViewController.configure(with: self.purchasedItems, promotion: promotions)
-    self.navigationController?.pushViewController(oneViewController, animated: true)
+    let cartPageViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "CartPageViewController") as CartPageViewController
+    cartPageViewController.configure(with: self.purchasedItems)
+    self.navigationController?.pushViewController(cartPageViewController, animated: true)
   }
 }
 
