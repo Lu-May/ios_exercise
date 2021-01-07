@@ -13,10 +13,10 @@ class ItemListViewController: UIViewController {
   let itemViewModel = ItemListViewModel()
   
 //  let itemQueryService = ItemQueryService()
-  let promotionQueryService = PromotionQueryService()
+//  let promotionQueryService = PromotionQueryService()
 //  var items: [Item] = []
-  var purchasedItems: [PurchasedItem] = []
-  var promotions: [String] = []
+//  var purchasedItems: [PurchasedItem] = []
+//  var promotions: [String] = []
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -35,7 +35,7 @@ class ItemListViewController: UIViewController {
   
   @IBAction func clickOneButton(_ sender: Any) {
     let cartPageViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "CartPageViewController") as CartPageViewController
-    cartPageViewController.configure(with: self.purchasedItems)
+    cartPageViewController.configure(with: self.itemViewModel.purchasedItems)
     self.navigationController?.pushViewController(cartPageViewController, animated: true)
   }
 }
@@ -50,14 +50,8 @@ extension ItemListViewController: UITableViewDataSource {
       return UITableViewCell()
     }
     
-    cell.configure(with: itemViewModel.items[indexPath.row], promotion: promotions) { [weak self] count in
-//      self?.itemViewModel.addItem()
-      self?.purchasedItems.append(contentsOf: [PurchasedItem(
-        count: count,
-        promotion: self!.promotions.contains(self!.itemViewModel.items[indexPath.row].barcode),
-        item: self!.itemViewModel.items[indexPath.row]
-      )])
-      self?.purchasedItems.sort(by: {$0.count > $1.count})
+    cell.configure(with: itemViewModel.items[indexPath.row], promotion: itemViewModel.promotions) { [weak self] count in
+      self?.itemViewModel.addPurchasedItem(count, cellForRowAt: indexPath)
     }
     return cell
   }

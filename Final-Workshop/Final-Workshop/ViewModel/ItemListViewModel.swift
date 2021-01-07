@@ -26,4 +26,13 @@ class ItemListViewModel {
       self.promotions = promotions ?? []
     }
   }
+  
+  func addPurchasedItem(_ count: Int, cellForRowAt indexPath: IndexPath) {
+    self.purchasedItems.append(contentsOf: [PurchasedItem(
+      count: count,
+      promotion: self.promotions.contains(self.items[indexPath.row].barcode),
+      item: self.items[indexPath.row]
+    )])
+    self.purchasedItems.sort(by: {$0.count > $1.count})
+  }
 }
