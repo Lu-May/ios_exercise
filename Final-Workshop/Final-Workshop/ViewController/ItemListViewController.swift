@@ -10,23 +10,25 @@ import UIKit
 class ItemListViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
-  let itemQueryService = ItemQueryService()
+  let itemViewModel = ItemListViewModel()
+  
+//  let itemQueryService = ItemQueryService()
   let promotionQueryService = PromotionQueryService()
-  var items: [Item] = []
+//  var items: [Item] = []
   var purchasedItems: [PurchasedItem] = []
   var promotions: [String] = []
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    tableView.dataSource = self
-    //    tableView.delegate = self
     self.title = "商品列表"
-    itemQueryService.getSearchResults() { [weak self] items, _ in
-      self?.items = items!
+    tableView.dataSource = self
+    
+    itemViewModel.getItems() { [weak self] in
       self?.tableView.reloadData()
+
     }
-    promotionQueryService.getSearchResults() { [weak self] data, _ in
-      self?.promotions = data!
+    
+    itemViewModel.getPromotions() { [weak self] in
       self?.tableView.reloadData()
     }
   }
@@ -40,7 +42,7 @@ class ItemListViewController: UIViewController {
 
 extension ItemListViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return items.count
+    return itemViewModel.items.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -48,11 +50,12 @@ extension ItemListViewController: UITableViewDataSource {
       return UITableViewCell()
     }
     
-    cell.configure(with: items[indexPath.row], promotion: promotions) { [weak self] count in
+    cell.configure(with: itemViewModel.items[indexPath.row], promotion: promotions) { [weak self] count in
+//      self?.itemViewModel.addItem()
       self?.purchasedItems.append(contentsOf: [PurchasedItem(
         count: count,
-        promotion: self!.promotions.contains(self!.items[indexPath.row].barcode),
-        item: self!.items[indexPath.row]
+        promotion: self!.promotions.contains(self!.itemViewModel.items[indexPath.row].barcode),
+        item: self!.itemViewModel.items[indexPath.row]
       )])
       self?.purchasedItems.sort(by: {$0.count > $1.count})
     }
