@@ -10,7 +10,7 @@ import UIKit
 class CartPageViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
-  var purchasedItems: [PurchasedItem] = []
+  var viewModel = ItemViewModel()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -19,25 +19,24 @@ class CartPageViewController: UIViewController {
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    print("aa")
+    self.tableView.reloadData()
   }
   
-  func configure(with purchasedItems: [PurchasedItem]) {
-    self.purchasedItems = purchasedItems.filterDuplicates({$0.item.name})
+  func configure(_ itemViewModel: ItemViewModel) {
+    itemViewModel.purchasedItems = itemViewModel.purchasedItems.filterDuplicates({$0.item.name})
+    self.viewModel = itemViewModel
   }
   
   @IBAction func clickForwardToReceiptPage(_ sender: Any) {
     let receiptViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ReceiptViewController") as ReceiptViewController
-    receiptViewController.configure(with: self.purchasedItems)
-    self.purchasedItems = []
-    self.tableView.reloadData()
+    receiptViewController.configure(self.viewModel)
     show(receiptViewController, sender: self)
   }
 }
 
 extension CartPageViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return self.purchasedItems.count
+    return self.viewModel.purchasedItems.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -45,7 +44,7 @@ extension CartPageViewController: UITableViewDataSource {
       return UITableViewCell()
     }
     
-    cell.configure(with: purchasedItems[indexPath.row])
+    cell.configure(with: viewModel.purchasedItems[indexPath.row])
     return cell
   }
 }

@@ -10,14 +10,8 @@ import UIKit
 class ItemListViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
-  let itemViewModel = ItemListViewModel()
-  
-//  let itemQueryService = ItemQueryService()
-//  let promotionQueryService = PromotionQueryService()
-//  var items: [Item] = []
-//  var purchasedItems: [PurchasedItem] = []
-//  var promotions: [String] = []
-  
+  let itemViewModel = ItemViewModel()
+
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "商品列表"
@@ -25,7 +19,6 @@ class ItemListViewController: UIViewController {
     
     itemViewModel.getItems() { [weak self] in
       self?.tableView.reloadData()
-
     }
     
     itemViewModel.getPromotions() { [weak self] in
@@ -33,9 +26,16 @@ class ItemListViewController: UIViewController {
     }
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    if itemViewModel.clearAfterReceipt {
+      self.tableView.reloadData()
+    }
+  }
+  
   @IBAction func clickOneButton(_ sender: Any) {
     let cartPageViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "CartPageViewController") as CartPageViewController
-    cartPageViewController.configure(with: self.itemViewModel.purchasedItems)
+    itemViewModel.setclearAfterReceiptFalse()
+    cartPageViewController.configure(self.itemViewModel)
     self.navigationController?.pushViewController(cartPageViewController, animated: true)
   }
 }
