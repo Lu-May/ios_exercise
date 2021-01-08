@@ -11,7 +11,7 @@ class ItemListViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
   let itemViewModel = ItemViewModel()
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "商品列表"
@@ -28,7 +28,7 @@ class ItemListViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     if itemViewModel.clearAfterReceipt {
-      self.tableView.reloadData()
+      tableView.reloadData()
     }
   }
   

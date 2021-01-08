@@ -19,24 +19,23 @@ class CartPageViewController: UIViewController {
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    self.tableView.reloadData()
+    tableView.reloadData()
   }
   
   func configure(_ itemViewModel: ItemViewModel) {
-    itemViewModel.purchasedItems = itemViewModel.purchasedItems.filterDuplicates({$0.item.name})
-    self.viewModel = itemViewModel
+    viewModel = itemViewModel
   }
   
   @IBAction func clickForwardToReceiptPage(_ sender: Any) {
     let receiptViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ReceiptViewController") as ReceiptViewController
-    receiptViewController.configure(self.viewModel)
+    receiptViewController.configure(viewModel)
     show(receiptViewController, sender: self)
   }
 }
 
 extension CartPageViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return self.viewModel.purchasedItems.count
+    return viewModel.purchasedItems.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -46,18 +45,5 @@ extension CartPageViewController: UITableViewDataSource {
     
     cell.configure(with: viewModel.purchasedItems[indexPath.row])
     return cell
-  }
-}
-
-extension Array {
-  func filterDuplicates<PurchasedItem: Equatable>(_ filter: (Element) -> PurchasedItem) -> [Element] {
-    var result = [Element]()
-    for value in self {
-      let key = filter(value)
-      if !result.map({filter($0)}).contains(key) {
-        result.append(value)
-      }
-    }
-    return result
   }
 }

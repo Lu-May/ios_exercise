@@ -13,17 +13,16 @@ class ReceiptViewController: UIViewController {
   var viewModel = ItemViewModel()
   
   func configure(_ itemViewModel: ItemViewModel) {
-    itemViewModel.setclearAfterReceiptTrue()
-    self.viewModel = itemViewModel
+    viewModel = itemViewModel
   }
-
+  
   override func viewDidAppear(_ animated: Bool) {
-    self.viewModel.clearPurchaseedItems()
+    viewModel.clearPurchaseedItems()
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "购物小票"
-    receiptLable.text = self.viewModel.receiptPrint()
+    receiptLable.text = viewModel.receiptPrint()
   }
 }

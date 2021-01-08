@@ -15,16 +15,13 @@ class ItemViewModel {
   var purchasedItems: [PurchasedItem] = []
   var promotions: [String] = []
   
-  func setclearAfterReceiptTrue() {
-    self.clearAfterReceipt = true
-  }
-  
   func setclearAfterReceiptFalse() {
-    self.clearAfterReceipt = false
+    clearAfterReceipt = false
   }
   
   func clearPurchaseedItems() {
-    self.purchasedItems = []
+    purchasedItems = []
+    clearAfterReceipt = true
   }
   
   func getItems(completion: @escaping () -> Void) {
@@ -41,12 +38,13 @@ class ItemViewModel {
   }
   
   func addPurchasedItem(_ count: Int, cellForRowAt indexPath: IndexPath) {
-    self.purchasedItems.append(contentsOf: [PurchasedItem(
+    purchasedItems.append(contentsOf: [PurchasedItem(
       count: count,
-      promotion: self.promotions.contains(self.items[indexPath.row].barcode),
-      item: self.items[indexPath.row]
+      promotion: promotions.contains(self.items[indexPath.row].barcode),
+      item: items[indexPath.row]
     )])
-    self.purchasedItems.sort(by: {$0.count > $1.count})
+    purchasedItems.sort(by: {$0.count > $1.count})
+    purchasedItems = purchasedItems.filterDuplicates({$0.item.name})
   }
   
   func receiptPrint() -> String {
@@ -54,10 +52,10 @@ class ItemViewModel {
     var totalPriceWithoutPromotion: Float = 0
     var receipt: String = ""
     var receiptLableText = ""
-    for item in self.purchasedItems {
-      totalPrice += item.subtotal
-      totalPriceWithoutPromotion += Float(item.count) * item.item.price
-      receipt += "名称：\(item.item.name)，数量：\(item.count)\(item.item.unit)，单价：¥\(item.item.price)\n小计：¥\(format(item.subtotal))\n";
+    for purchasedItem in self.purchasedItems {
+      totalPrice += purchasedItem.subtotal
+      totalPriceWithoutPromotion += Float(purchasedItem.count) * purchasedItem.item.price
+      receipt += "名称：\(purchasedItem.item.name)，数量：\(purchasedItem.count)\(purchasedItem.item.unit)，单价：¥\(purchasedItem.item.price)\n小计：¥\(format(purchasedItem.subtotal))\n";
     }
     
     receiptLableText = """
@@ -72,5 +70,18 @@ class ItemViewModel {
   
   func format(_ variable: Float) -> String {
     return String(format: "%0.2f",variable);
+  }
+}
+
+extension Array {
+  func filterDuplicates<PurchasedItem: Equatable>(_ filter: (Element) -> PurchasedItem) -> [Element] {
+    var result = [Element]()
+    for value in self {
+      let key = filter(value)
+      if !result.map({filter($0)}).contains(key) {
+        result.append(value)
+      }
+    }
+    return result
   }
 }
