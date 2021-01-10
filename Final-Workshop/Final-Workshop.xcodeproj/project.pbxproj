@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,7 +14,6 @@
 		7A24154B25A2E24D00D90265 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A24154A25A2E24D00D90265 /* Assets.xcassets */; };
 		7A24154E25A2E24D00D90265 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A24154C25A2E24D00D90265 /* LaunchScreen.storyboard */; };
 		7A24155925A2E24E00D90265 /* Final_WorkshopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A24155825A2E24E00D90265 /* Final_WorkshopTests.swift */; };
-		7A24156425A2E24E00D90265 /* Final_WorkshopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A24156325A2E24E00D90265 /* Final_WorkshopUITests.swift */; };
 		7A24157525A2EB2900D90265 /* CartPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A24157425A2EB2900D90265 /* CartPageViewController.swift */; };
 		7A24157A25A2EB8D00D90265 /* ReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A24157925A2EB8D00D90265 /* ReceiptViewController.swift */; };
 		7A24157F25A2F0A000D90265 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A24157E25A2F0A000D90265 /* ItemListViewController.swift */; };
@@ -25,6 +24,9 @@
 		7A2415C325A462A900D90265 /* PurchasedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2415C225A462A900D90265 /* PurchasedItem.swift */; };
 		7A2415C825A554CA00D90265 /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2415C725A554CA00D90265 /* CartCell.swift */; };
 		7A2415D425A6D77800D90265 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2415D325A6D77800D90265 /* ItemViewModel.swift */; };
+		7A5B98C225AAC36200B98DC8 /* ItemViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5B98C125AAC36200B98DC8 /* ItemViewModelTest.swift */; };
+		7A5B98E725AAC7A000B98DC8 /* Pods_Final_WorkshopTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5B98E625AAC7A000B98DC8 /* Pods_Final_WorkshopTests.framework */; };
+		8AFB95A8E1FE3E6988BD7ED5 /* Pods_Final_Workshop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B995051336E13A59537201 /* Pods_Final_Workshop.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,16 +37,13 @@
 			remoteGlobalIDString = 7A24153D25A2E24B00D90265;
 			remoteInfo = "Final-Workshop";
 		};
-		7A24156025A2E24E00D90265 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7A24153625A2E24B00D90265 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7A24153D25A2E24B00D90265;
-			remoteInfo = "Final-Workshop";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3DE6AA453B368FDA08A63F38 /* Pods-Final-Workshop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Final-Workshop.release.xcconfig"; path = "Target Support Files/Pods-Final-Workshop/Pods-Final-Workshop.release.xcconfig"; sourceTree = "<group>"; };
+		4C61B39AE8BDA7F8544317D5 /* Pods-Final-WorkshopTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Final-WorkshopTests.release.xcconfig"; path = "Target Support Files/Pods-Final-WorkshopTests/Pods-Final-WorkshopTests.release.xcconfig"; sourceTree = "<group>"; };
+		5045D17B0F8303CF56B9DB82 /* Pods-Final-WorkshopTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Final-WorkshopTests.debug.xcconfig"; path = "Target Support Files/Pods-Final-WorkshopTests/Pods-Final-WorkshopTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5052EF85F28058DD1A2EAD5A /* Pods_Final_WorkshopTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Final_WorkshopTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A24153E25A2E24B00D90265 /* Final-Workshop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Final-Workshop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A24154125A2E24B00D90265 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A24154325A2E24B00D90265 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,9 +55,6 @@
 		7A24155425A2E24E00D90265 /* Final-WorkshopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Final-WorkshopTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A24155825A2E24E00D90265 /* Final_WorkshopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Final_WorkshopTests.swift; sourceTree = "<group>"; };
 		7A24155A25A2E24E00D90265 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7A24155F25A2E24E00D90265 /* Final-WorkshopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Final-WorkshopUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A24156325A2E24E00D90265 /* Final_WorkshopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Final_WorkshopUITests.swift; sourceTree = "<group>"; };
-		7A24156525A2E24E00D90265 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A24157425A2EB2900D90265 /* CartPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartPageViewController.swift; sourceTree = "<group>"; };
 		7A24157925A2EB8D00D90265 /* ReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptViewController.swift; sourceTree = "<group>"; };
 		7A24157E25A2F0A000D90265 /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +65,21 @@
 		7A2415C225A462A900D90265 /* PurchasedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedItem.swift; sourceTree = "<group>"; };
 		7A2415C725A554CA00D90265 /* CartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
 		7A2415D325A6D77800D90265 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
+		7A5B98C125AAC36200B98DC8 /* ItemViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModelTest.swift; sourceTree = "<group>"; };
+		7A5B98D125AAC57100B98DC8 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A5B98D325AAC57A00B98DC8 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A5B98DB25AAC6DC00B98DC8 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A5B98DD25AAC70000B98DC8 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk/System/iOSSupport/System/Library/Frameworks/QuickLook.framework; sourceTree = DEVELOPER_DIR; };
+		7A5B98DF25AAC72100B98DC8 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A5B98E125AAC72100B98DC8 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A5B98E625AAC7A000B98DC8 /* Pods_Final_WorkshopTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Final_WorkshopTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A5B990325AAC98000B98DC8 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A5B990525AAC98000B98DC8 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92B995051336E13A59537201 /* Pods_Final_Workshop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Final_Workshop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A40BAA4A1F7235D0099BB84C /* Pods-Final-Workshop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Final-Workshop.debug.xcconfig"; path = "Target Support Files/Pods-Final-Workshop/Pods-Final-Workshop.debug.xcconfig"; sourceTree = "<group>"; };
+		B0F4C4D182A8DE3D211AE28E /* Pods_Final_Workshop_Final_WorkshopUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Final_Workshop_Final_WorkshopUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1564224830093BC9FF7ED2C /* Pods-Final-Workshop-Final-WorkshopUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Final-Workshop-Final-WorkshopUITests.release.xcconfig"; path = "Target Support Files/Pods-Final-Workshop-Final-WorkshopUITests/Pods-Final-Workshop-Final-WorkshopUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F2041F060DE09083DF7002E5 /* Pods-Final-Workshop-Final-WorkshopUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Final-Workshop-Final-WorkshopUITests.debug.xcconfig"; path = "Target Support Files/Pods-Final-Workshop-Final-WorkshopUITests/Pods-Final-Workshop-Final-WorkshopUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AFB95A8E1FE3E6988BD7ED5 /* Pods_Final_Workshop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,26 +95,53 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7A24155C25A2E24E00D90265 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				7A5B98E725AAC7A000B98DC8 /* Pods_Final_WorkshopTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1DC3C711AE94E0B65AAEE152 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7A5B990325AAC98000B98DC8 /* Nimble.framework */,
+				7A5B990525AAC98000B98DC8 /* Quick.framework */,
+				7A5B98E625AAC7A000B98DC8 /* Pods_Final_WorkshopTests.framework */,
+				7A5B98DF25AAC72100B98DC8 /* Nimble.framework */,
+				7A5B98E125AAC72100B98DC8 /* Quick.framework */,
+				7A5B98DD25AAC70000B98DC8 /* QuickLook.framework */,
+				7A5B98DB25AAC6DC00B98DC8 /* Nimble.framework */,
+				7A5B98D325AAC57A00B98DC8 /* Quick.framework */,
+				7A5B98D125AAC57100B98DC8 /* Nimble.framework */,
+				92B995051336E13A59537201 /* Pods_Final_Workshop.framework */,
+				B0F4C4D182A8DE3D211AE28E /* Pods_Final_Workshop_Final_WorkshopUITests.framework */,
+				5052EF85F28058DD1A2EAD5A /* Pods_Final_WorkshopTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		21865BD357E17D1311EBB957 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A40BAA4A1F7235D0099BB84C /* Pods-Final-Workshop.debug.xcconfig */,
+				3DE6AA453B368FDA08A63F38 /* Pods-Final-Workshop.release.xcconfig */,
+				F2041F060DE09083DF7002E5 /* Pods-Final-Workshop-Final-WorkshopUITests.debug.xcconfig */,
+				E1564224830093BC9FF7ED2C /* Pods-Final-Workshop-Final-WorkshopUITests.release.xcconfig */,
+				5045D17B0F8303CF56B9DB82 /* Pods-Final-WorkshopTests.debug.xcconfig */,
+				4C61B39AE8BDA7F8544317D5 /* Pods-Final-WorkshopTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		7A24153525A2E24B00D90265 = {
 			isa = PBXGroup;
 			children = (
 				7A24154025A2E24B00D90265 /* Final-Workshop */,
 				7A24155725A2E24E00D90265 /* Final-WorkshopTests */,
-				7A24156225A2E24E00D90265 /* Final-WorkshopUITests */,
 				7A24153F25A2E24B00D90265 /* Products */,
+				21865BD357E17D1311EBB957 /* Pods */,
+				1DC3C711AE94E0B65AAEE152 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,7 +150,6 @@
 			children = (
 				7A24153E25A2E24B00D90265 /* Final-Workshop.app */,
 				7A24155425A2E24E00D90265 /* Final-WorkshopTests.xctest */,
-				7A24155F25A2E24E00D90265 /* Final-WorkshopUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,17 +178,9 @@
 			children = (
 				7A24155825A2E24E00D90265 /* Final_WorkshopTests.swift */,
 				7A24155A25A2E24E00D90265 /* Info.plist */,
+				7A5B98C125AAC36200B98DC8 /* ItemViewModelTest.swift */,
 			);
 			path = "Final-WorkshopTests";
-			sourceTree = "<group>";
-		};
-		7A24156225A2E24E00D90265 /* Final-WorkshopUITests */ = {
-			isa = PBXGroup;
-			children = (
-				7A24156325A2E24E00D90265 /* Final_WorkshopUITests.swift */,
-				7A24156525A2E24E00D90265 /* Info.plist */,
-			);
-			path = "Final-WorkshopUITests";
 			sourceTree = "<group>";
 		};
 		7A2415CC25A6CD3300D90265 /* ViewController */ = {
@@ -205,6 +235,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7A24156825A2E24E00D90265 /* Build configuration list for PBXNativeTarget "Final-Workshop" */;
 			buildPhases = (
+				F4078D0AE1D554F921BC971B /* [CP] Check Pods Manifest.lock */,
 				7A24153A25A2E24B00D90265 /* Sources */,
 				7A24153B25A2E24B00D90265 /* Frameworks */,
 				7A24153C25A2E24B00D90265 /* Resources */,
@@ -222,9 +253,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7A24156B25A2E24E00D90265 /* Build configuration list for PBXNativeTarget "Final-WorkshopTests" */;
 			buildPhases = (
+				F8969F79D7B089F1202E90A3 /* [CP] Check Pods Manifest.lock */,
 				7A24155025A2E24E00D90265 /* Sources */,
 				7A24155125A2E24E00D90265 /* Frameworks */,
 				7A24155225A2E24E00D90265 /* Resources */,
+				5DA45473621BB95BBBA6A9BE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -235,24 +268,6 @@
 			productName = "Final-WorkshopTests";
 			productReference = 7A24155425A2E24E00D90265 /* Final-WorkshopTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		7A24155E25A2E24E00D90265 /* Final-WorkshopUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7A24156E25A2E24E00D90265 /* Build configuration list for PBXNativeTarget "Final-WorkshopUITests" */;
-			buildPhases = (
-				7A24155B25A2E24E00D90265 /* Sources */,
-				7A24155C25A2E24E00D90265 /* Frameworks */,
-				7A24155D25A2E24E00D90265 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7A24156125A2E24E00D90265 /* PBXTargetDependency */,
-			);
-			name = "Final-WorkshopUITests";
-			productName = "Final-WorkshopUITests";
-			productReference = 7A24155F25A2E24E00D90265 /* Final-WorkshopUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -267,10 +282,6 @@
 						CreatedOnToolsVersion = 12.2;
 					};
 					7A24155325A2E24E00D90265 = {
-						CreatedOnToolsVersion = 12.2;
-						TestTargetID = 7A24153D25A2E24B00D90265;
-					};
-					7A24155E25A2E24E00D90265 = {
 						CreatedOnToolsVersion = 12.2;
 						TestTargetID = 7A24153D25A2E24B00D90265;
 					};
@@ -291,7 +302,6 @@
 			targets = (
 				7A24153D25A2E24B00D90265 /* Final-Workshop */,
 				7A24155325A2E24E00D90265 /* Final-WorkshopTests */,
-				7A24155E25A2E24E00D90265 /* Final-WorkshopUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -314,14 +324,71 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7A24155D25A2E24E00D90265 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5DA45473621BB95BBBA6A9BE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Final-WorkshopTests/Pods-Final-WorkshopTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Final-WorkshopTests/Pods-Final-WorkshopTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Final-WorkshopTests/Pods-Final-WorkshopTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
-/* End PBXResourcesBuildPhase section */
+		F4078D0AE1D554F921BC971B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Final-Workshop-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8969F79D7B089F1202E90A3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Final-WorkshopTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7A24153A25A2E24B00D90265 /* Sources */ = {
@@ -349,14 +416,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A24155925A2E24E00D90265 /* Final_WorkshopTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7A24155B25A2E24E00D90265 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7A24156425A2E24E00D90265 /* Final_WorkshopUITests.swift in Sources */,
+				7A5B98C225AAC36200B98DC8 /* ItemViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,11 +427,6 @@
 			isa = PBXTargetDependency;
 			target = 7A24153D25A2E24B00D90265 /* Final-Workshop */;
 			targetProxy = 7A24155525A2E24E00D90265 /* PBXContainerItemProxy */;
-		};
-		7A24156125A2E24E00D90265 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7A24153D25A2E24B00D90265 /* Final-Workshop */;
-			targetProxy = 7A24156025A2E24E00D90265 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -504,6 +559,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -513,6 +569,7 @@
 		};
 		7A24156925A2E24E00D90265 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A40BAA4A1F7235D0099BB84C /* Pods-Final-Workshop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -531,6 +588,7 @@
 		};
 		7A24156A25A2E24E00D90265 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DE6AA453B368FDA08A63F38 /* Pods-Final-Workshop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -540,6 +598,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "Lu.Final-Workshop";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -549,10 +608,12 @@
 		};
 		7A24156C25A2E24E00D90265 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5045D17B0F8303CF56B9DB82 /* Pods-Final-WorkshopTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = NO;
 				INFOPLIST_FILE = "Final-WorkshopTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -570,10 +631,12 @@
 		};
 		7A24156D25A2E24E00D90265 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C61B39AE8BDA7F8544317D5 /* Pods-Final-WorkshopTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = NO;
 				INFOPLIST_FILE = "Final-WorkshopTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -586,44 +649,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Final-Workshop.app/Final-Workshop";
-			};
-			name = Release;
-		};
-		7A24156F25A2E24E00D90265 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Final-WorkshopUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Lu.Final-WorkshopUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Final-Workshop";
-			};
-			name = Debug;
-		};
-		7A24157025A2E24E00D90265 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Final-WorkshopUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Lu.Final-WorkshopUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Final-Workshop";
 			};
 			name = Release;
 		};
@@ -653,15 +678,6 @@
 			buildConfigurations = (
 				7A24156C25A2E24E00D90265 /* Debug */,
 				7A24156D25A2E24E00D90265 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7A24156E25A2E24E00D90265 /* Build configuration list for PBXNativeTarget "Final-WorkshopUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7A24156F25A2E24E00D90265 /* Debug */,
-				7A24157025A2E24E00D90265 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,0 +1,6 @@
+framework module Pods_Final_Workshop_Final_WorkshopUITests {
+  umbrella header "Pods-Final-Workshop-Final-WorkshopUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

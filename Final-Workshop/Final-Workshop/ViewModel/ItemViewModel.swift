@@ -8,36 +8,37 @@
 import Foundation
 
 class ItemViewModel {
-  let itemQueryService = ItemQueryService()
-  let promotionQueryService = PromotionQueryService()
-  var clearAfterReceipt = false
-  var items: [Item] = []
-  var purchasedItems: [PurchasedItem] = []
-  var promotions: [String] = []
+  public var itemQueryService = ItemQueryService()
+  public var promotionQueryService = PromotionQueryService()
+  public var clearAfterReceipt = false
+  public var items: [Item] = []
+  public var purchasedItems: [PurchasedItem] = []
+  public var promotions: [String] = []
   
-  func setclearAfterReceiptFalse() {
+  public func setclearAfterReceiptFalse() {
     clearAfterReceipt = false
   }
   
-  func clearPurchaseedItems() {
+  public func clearPurchaseedItems() {
     purchasedItems = []
     clearAfterReceipt = true
   }
   
-  func getItems(completion: @escaping () -> Void) {
+  public func getItems(completion: @escaping () -> Void) {
     itemQueryService.getSearchResults() { items, _  in
       self.items = items ?? []
       completion()
     }
   }
   
-  func getPromotions(completion: @escaping () -> Void) {
+  public func getPromotions(completion: @escaping () -> Void) {
     promotionQueryService.getSearchResults() { promotions, _ in
       self.promotions = promotions ?? []
+      completion()
     }
   }
   
-  func addPurchasedItem(_ count: Int, cellForRowAt indexPath: IndexPath) {
+  public func addPurchasedItem(_ count: Int, cellForRowAt indexPath: IndexPath) {
     purchasedItems.append(contentsOf: [PurchasedItem(
       count: count,
       promotion: promotions.contains(self.items[indexPath.row].barcode),
@@ -47,15 +48,15 @@ class ItemViewModel {
     purchasedItems = purchasedItems.filterDuplicates({$0.item.name})
   }
   
-  func receiptPrint() -> String {
+  public func receiptPrint() -> String {
     var totalPrice: Float = 0
     var totalPriceWithoutPromotion: Float = 0
     var receipt: String = ""
     var receiptLableText = ""
-    for purchasedItem in self.purchasedItems {
+    for purchasedItem in purchasedItems {
       totalPrice += purchasedItem.subtotal
       totalPriceWithoutPromotion += Float(purchasedItem.count) * purchasedItem.item.price
-      receipt += "名称：\(purchasedItem.item.name)，数量：\(purchasedItem.count)\(purchasedItem.item.unit)，单价：¥\(purchasedItem.item.price)\n小计：¥\(format(purchasedItem.subtotal))\n";
+      receipt += purchasedItem.subreceipt
     }
     
     receiptLableText = """
@@ -68,7 +69,7 @@ class ItemViewModel {
     return receiptLableText
   }
   
-  func format(_ variable: Float) -> String {
+  private func format(_ variable: Float) -> String {
     return String(format: "%0.2f",variable);
   }
 }
