@@ -69,7 +69,7 @@ class ItemViewModel {
     return receiptLableText
   }
   
-  private func format(_ variable: Float) -> String {
+  public func format(_ variable: Float) -> String {
     return String(format: "%0.2f",variable);
   }
 }
