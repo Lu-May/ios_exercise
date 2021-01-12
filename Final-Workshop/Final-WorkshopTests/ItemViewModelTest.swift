@@ -43,6 +43,14 @@ class ItemViewModelTest: QuickSpec {
           expect(viewModel.purchasedItems.count == 0) == true
         }
       }
+      
+      context("when array has no member") {
+        it("returns a empty array") {
+          expect(viewModel.purchasedItems.count) == 0
+          viewModel.clearPurchaseedItems()
+          expect(viewModel.purchasedItems) == []
+        }
+      }
     }
     
     describe("getItems") { [self] in
