@@ -24,6 +24,6 @@ struct PurchasedItem: Equatable {
   }
   var item: Item
   var subreceipt: String {
-    return "名称：\(item.name)，数量：\(count)\(item.unit)，单价：¥\(item.price)\n小计：¥\(String(format: "%0.2f",subtotal))\n";
+    return "名称：\(item.name)，数量：\(count)\(item.unit)，单价：¥\(String(format: "%0.2f",item.price))\n小计：¥\(String(format: "%0.2f",subtotal))\n";
   }
 }

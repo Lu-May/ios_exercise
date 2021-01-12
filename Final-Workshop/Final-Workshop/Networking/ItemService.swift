@@ -29,7 +29,7 @@ class ItemQueryService {
             self?.dataTask = nil
           }
           var errorMessage = ""
-          var tweetDatas: [Item] = []
+          var itemDatas: [Item] = []
           if let error = error {
             errorMessage += "DataTask error: " +
               error.localizedDescription + "\n"
@@ -38,13 +38,13 @@ class ItemQueryService {
             let response = response as? HTTPURLResponse,
             response.statusCode == 200 {
             do {
-              tweetDatas = try JSONDecoder().decode([Item].self, from: tweet)
+              itemDatas = try JSONDecoder().decode([Item].self, from: tweet)
             } catch {
               print(error)
             }
           }
           DispatchQueue.main.async {
-            completion(tweetDatas, errorMessage )
+            completion(itemDatas, errorMessage )
           }
         }
       dataTask?.resume()

@@ -8,37 +8,37 @@
 import Foundation
 
 class ItemViewModel {
-  public var itemQueryService = ItemQueryService()
-  public var promotionQueryService = PromotionQueryService()
-  public var clearAfterReceipt = false
-  public var items: [Item] = []
-  public var purchasedItems: [PurchasedItem] = []
-  public var promotions: [String] = []
+  var itemQueryService = ItemQueryService()
+  var promotionQueryService = PromotionQueryService()
+  var clearAfterReceipt = false
+  var items: [Item] = []
+  var purchasedItems: [PurchasedItem] = []
+  var promotions: [String] = []
   
-  public func setclearAfterReceiptFalse() {
+  func setclearAfterReceiptFalse() {
     clearAfterReceipt = false
   }
   
-  public func clearPurchaseedItems() {
+  func clearPurchaseedItems() {
     purchasedItems = []
     clearAfterReceipt = true
   }
   
-  public func getItems(completion: @escaping () -> Void) {
+  func getItems(completion: @escaping () -> Void) {
     itemQueryService.getSearchResults() { items, _  in
       self.items = items ?? []
       completion()
     }
   }
   
-  public func getPromotions(completion: @escaping () -> Void) {
+  func getPromotions(completion: @escaping () -> Void) {
     promotionQueryService.getSearchResults() { promotions, _ in
       self.promotions = promotions ?? []
       completion()
     }
   }
   
-  public func addPurchasedItem(_ count: Int, cellForRowAt indexPath: IndexPath) {
+  func addPurchasedItem(_ count: Int, cellForRowAt indexPath: IndexPath) {
     purchasedItems.append(contentsOf: [PurchasedItem(
       count: count,
       promotion: promotions.contains(self.items[indexPath.row].barcode),
@@ -48,7 +48,7 @@ class ItemViewModel {
     purchasedItems = purchasedItems.filterDuplicates({$0.item.name})
   }
   
-  public func receiptPrint() -> String {
+  func receiptPrint() -> String {
     var totalPrice: Float = 0
     var totalPriceWithoutPromotion: Float = 0
     var receipt: String = ""
@@ -69,7 +69,7 @@ class ItemViewModel {
     return receiptLableText
   }
   
-  public func format(_ variable: Float) -> String {
+  func format(_ variable: Float) -> String {
     return String(format: "%0.2f",variable);
   }
 }
