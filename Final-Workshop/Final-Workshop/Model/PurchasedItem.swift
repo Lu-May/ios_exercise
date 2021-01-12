@@ -7,13 +7,11 @@
 
 import Foundation
 
-struct PurchasedItem: Equatable {
-  static func == (lhs: PurchasedItem, rhs: PurchasedItem) -> Bool {
-    return true
-  }
-  
+struct PurchasedItem {
   var count: Int
   var promotion: Bool
+  var item: Item
+  
   var subtotal: Float {
     if promotion {
       if count >= 3 {
@@ -22,7 +20,7 @@ struct PurchasedItem: Equatable {
     }
     return Float(count) * item.price
   }
-  var item: Item
+  
   var subreceipt: String {
     return "名称：\(item.name)，数量：\(count)\(item.unit)，单价：¥\(String(format: "%0.2f",item.price))\n小计：¥\(String(format: "%0.2f",subtotal))\n";
   }

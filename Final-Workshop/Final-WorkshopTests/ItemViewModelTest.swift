@@ -83,7 +83,7 @@ class ItemViewModelTest: QuickSpec {
     describe("addPurchasedItem") { [self] in
       context("when add purchased item") {
         it("adds to purchasedItems") {
-          viewModel.addPurchasedItem(6, cellForRowAt: [0, 0])
+          viewModel.addPurchasedItem(6, cellForRowAt: 0)
           expect(viewModel.purchasedItems[0].count) == 6
           expect(viewModel.purchasedItems[0].promotion) == false
           expect(viewModel.purchasedItems[0].item.barcode) == "123"
@@ -151,54 +151,6 @@ class ItemViewModelTest: QuickSpec {
         it("returns two digits") {
           expect(viewModel.format(12.322)) == "12.32"
           expect(viewModel.format(12.328)) == "12.33"
-        }
-      }
-    }
-    
-    describe("filterDuplicates") { [self] in
-      context("when array is empty or has only one member") {
-        it("returns an empty array when array is empty") {
-          viewModel.clearPurchaseedItems()
-          expect(viewModel.purchasedItems.filterDuplicates({$0.item.name})) == []
-        }
-        
-        it("returns itself when array has one member") {
-          viewModel.purchasedItems.append(contentsOf: [PurchasedItem(
-            count: 3,
-            promotion: true,
-            item: Item(barcode: "12345678", name: "cat", unit: "one", price: 30)
-          )])
-          expect(viewModel.purchasedItems.filterDuplicates({$0.item.name})) == [PurchasedItem(count: 3, promotion: true, item: Item(barcode: "12345678", name: "cat", unit: "one", price: 30))]
-        }
-      }
-      
-      context("when array has more than one repetitive members") {
-        it("returns the first member when there has two or more repetitive members") {
-          viewModel.purchasedItems.append(contentsOf: [PurchasedItem(
-            count: 3,
-            promotion: true,
-            item: Item(barcode: "12345678", name: "cat", unit: "one", price: 30)
-          )])
-          viewModel.purchasedItems.append(contentsOf: [PurchasedItem(
-            count: 2,
-            promotion: true,
-            item: Item(barcode: "12345678", name: "cat", unit: "one", price: 30)
-          )])
-          expect(viewModel.purchasedItems.filterDuplicates({$0.item.name}).count) == 1
-          expect(viewModel.purchasedItems.filterDuplicates({$0.item.name})[0].count) == 3
-          viewModel.clearPurchaseedItems()
-          viewModel.purchasedItems.append(contentsOf: [PurchasedItem(
-            count: 2,
-            promotion: true,
-            item: Item(barcode: "12345678", name: "cat", unit: "one", price: 30)
-          )])
-          viewModel.purchasedItems.append(contentsOf: [PurchasedItem(
-            count: 3,
-            promotion: true,
-            item: Item(barcode: "12345678", name: "cat", unit: "one", price: 30)
-          )])
-          expect(viewModel.purchasedItems.filterDuplicates({$0.item.name}).count) == 1
-          expect(viewModel.purchasedItems.filterDuplicates({$0.item.name})[0].count) == 2
         }
       }
     }

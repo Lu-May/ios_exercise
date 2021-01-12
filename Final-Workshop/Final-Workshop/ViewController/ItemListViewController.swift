@@ -51,7 +51,7 @@ extension ItemListViewController: UITableViewDataSource {
     }
     
     cell.configure(with: itemViewModel.items[indexPath.row], promotion: itemViewModel.promotions) { [weak self] count in
-      self?.itemViewModel.addPurchasedItem(count, cellForRowAt: indexPath)
+      self?.itemViewModel.addPurchasedItem(count, cellForRowAt: indexPath.row)
     }
     return cell
   }

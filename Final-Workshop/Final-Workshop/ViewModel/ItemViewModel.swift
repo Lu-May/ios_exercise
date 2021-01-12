@@ -38,14 +38,26 @@ class ItemViewModel {
     }
   }
   
-  func addPurchasedItem(_ count: Int, cellForRowAt indexPath: IndexPath) {
-    purchasedItems.append(contentsOf: [PurchasedItem(
-      count: count,
-      promotion: promotions.contains(self.items[indexPath.row].barcode),
-      item: items[indexPath.row]
-    )])
-    purchasedItems.sort(by: {$0.count > $1.count})
-    purchasedItems = purchasedItems.filterDuplicates({$0.item.name})
+  func addPurchasedItem(_ count: Int, cellForRowAt row: Int) {
+    let purchasedItem = purchasedItems.filter{ $0.item.barcode == items[row].barcode }.first
+    if purchasedItem != nil {
+      let updatedItems = purchasedItems.map({ purchasedItem -> PurchasedItem in
+        if purchasedItem.item.barcode == items[row].barcode {
+          var item = purchasedItem
+          item.count = count
+          return item
+        }
+        return purchasedItem
+      })
+      purchasedItems = updatedItems
+    } else {
+      self.purchasedItems.append(contentsOf: [PurchasedItem(
+        count: count,
+        promotion: promotions.contains(self.items[row].barcode),
+        item: items[row]
+      )])
+    }
+    purchasedItems = purchasedItems.filter{ $0.count != 0 }
   }
   
   func receiptPrint() -> String {
@@ -71,18 +83,5 @@ class ItemViewModel {
   
   func format(_ variable: Float) -> String {
     return String(format: "%0.2f",variable);
-  }
-}
-
-extension Array {
-  func filterDuplicates<PurchasedItem: Equatable>(_ filter: (Element) -> PurchasedItem) -> [Element] {
-    var result = [Element]()
-    for value in self {
-      let key = filter(value)
-      if !result.map({filter($0)}).contains(key) {
-        result.append(value)
-      }
-    }
-    return result
   }
 }
