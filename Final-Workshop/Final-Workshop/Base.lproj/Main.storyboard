@@ -246,7 +246,7 @@
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <state key="normal" title="确认下单"/>
                                 <connections>
-                                    <action selector="clickOneButton:" destination="Zzq-6l-fZs" eventType="touchUpInside" id="nRU-kM-SPw"/>
+                                    <action selector="clickToCartPageButton:" destination="Zzq-6l-fZs" eventType="touchUpInside" id="nRU-kM-SPw"/>
                                 </connections>
                             </button>
                         </subviews>

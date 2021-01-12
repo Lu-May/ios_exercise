@@ -32,7 +32,7 @@ class ItemListViewController: UIViewController {
     }
   }
   
-  @IBAction func clickOneButton(_ sender: Any) {
+  @IBAction func clickToCartPageButton(_ sender: Any) {
     let cartPageViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "CartPageViewController") as CartPageViewController
     itemViewModel.setclearAfterReceiptFalse()
     cartPageViewController.configure(self.itemViewModel)
