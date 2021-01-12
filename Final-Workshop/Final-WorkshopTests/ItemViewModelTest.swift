@@ -28,50 +28,58 @@ class ItemViewModelTest: QuickSpec {
   
   override func spec() {
     describe("clearPurchaseedItems") { [self] in
-      it("shoulds be cleared") {
-        viewModel.clearPurchaseedItems()
-        viewModel.purchasedItems = [PurchasedItem(
-          count: 3,
-          promotion: true,
-          item: Item(barcode: "12345678", name: "cat", unit: "one", price: 30)
-        )]
-        expect(viewModel.purchasedItems.count) == 1
-        viewModel.clearPurchaseedItems()
-        expect(viewModel.purchasedItems) == []
-        expect(viewModel.clearAfterReceipt) == true
-        expect(viewModel.purchasedItems.count == 0) == true
+      context("when array has member") {
+        it("shoulds be cleared") {
+          viewModel.clearPurchaseedItems()
+          viewModel.purchasedItems = [PurchasedItem(
+            count: 3,
+            promotion: true,
+            item: Item(barcode: "12345678", name: "cat", unit: "one", price: 30)
+          )]
+          expect(viewModel.purchasedItems.count) == 1
+          viewModel.clearPurchaseedItems()
+          expect(viewModel.purchasedItems) == []
+          expect(viewModel.clearAfterReceipt) == true
+          expect(viewModel.purchasedItems.count == 0) == true
+        }
       }
     }
     
     describe("getItems") { [self] in
-      it("gets items list") {
-        viewModel.itemQueryService = MockItemQueryService()
-        viewModel.getItems() {
-          expect(viewModel.items.count) == 1
-          expect(viewModel.items[0].barcode) == "123"
-          expect(viewModel.items[0].name) == "cat"
-          expect(viewModel.items[0].unit) == "只"
-          expect(viewModel.items[0].price) == 5
+      context("when query items") {
+        it("gets items list") {
+          viewModel.itemQueryService = MockItemQueryService()
+          viewModel.getItems() {
+            expect(viewModel.items.count) == 1
+            expect(viewModel.items[0].barcode) == "123"
+            expect(viewModel.items[0].name) == "cat"
+            expect(viewModel.items[0].unit) == "只"
+            expect(viewModel.items[0].price) == 5
+          }
         }
       }
     }
     
     describe("getpromotions") { [self] in
-      it("gets promotions") {
-        viewModel.promotionQueryService = MockPromotionQueryService()
-        viewModel.getPromotions() {
-          expect(viewModel.promotions.count) == 2
-          expect(viewModel.promotions) == ["one", "two"]
+      context("when query promotions") {
+        it("gets promotions") {
+          viewModel.promotionQueryService = MockPromotionQueryService()
+          viewModel.getPromotions() {
+            expect(viewModel.promotions.count) == 2
+            expect(viewModel.promotions) == ["one", "two"]
+          }
         }
       }
     }
     
     describe("addPurchasedItem") { [self] in
-      it("gets promotions") {
-        viewModel.addPurchasedItem(6, cellForRowAt: [0, 0])
-        expect(viewModel.purchasedItems[0].count) == 6
-        expect(viewModel.purchasedItems[0].promotion) == false
-        expect(viewModel.purchasedItems[0].item.barcode) == "123"
+      context("when add purchased item") {
+        it("adds to purchasedItems") {
+          viewModel.addPurchasedItem(6, cellForRowAt: [0, 0])
+          expect(viewModel.purchasedItems[0].count) == 6
+          expect(viewModel.purchasedItems[0].promotion) == false
+          expect(viewModel.purchasedItems[0].item.barcode) == "123"
+        }
       }
     }
     
