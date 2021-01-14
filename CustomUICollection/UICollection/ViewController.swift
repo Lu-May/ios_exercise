@@ -24,7 +24,7 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     let layout = UICollectionViewFlowLayout()
     layout.itemSize = CGSize(
       width: (self.view.bounds.size.width - 40) / 2 + 5,
-      height: (self.view.bounds.size.height - 40) / 2 + 5
+      height: self.view.bounds.size.height
     )
     layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
     
