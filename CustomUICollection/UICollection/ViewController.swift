@@ -21,13 +21,6 @@ class ViewController: UIViewController, UICollectionViewDataSource {
   
   func setupUI()
   {
-    let layout = UICollectionViewFlowLayout()
-    layout.itemSize = CGSize(
-      width: (self.view.bounds.size.width - 40) / 2 + 5,
-      height: self.view.bounds.size.height
-    )
-    layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-    
     collectionView.register(CollectionCell.self, forCellWithReuseIdentifier: "CollectionCell")
     collectionView.dataSource = self
     collectionView.backgroundColor = UIColor.white
@@ -50,7 +43,14 @@ extension ViewController: PinterestLayoutDelegate {
   func collectionView(
     _ collectionView: UICollectionView,
     heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {
-    return (UIImage(named: dataSource[indexPath.row].pic)?.size.height)!
+    
+    let insets = collectionView.contentInset
+    let imgWidth = collectionView.bounds.width - (insets.left + insets.right)
+    let width = UIImage(named: dataSource[indexPath.row].pic)?.size.width
+    let height = UIImage(named: dataSource[indexPath.row].pic)?.size.height
+    let imgHeight = height! * imgWidth / width!
+    
+    return imgHeight
   }
 }
 
