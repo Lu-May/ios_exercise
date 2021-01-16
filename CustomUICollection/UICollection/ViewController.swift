@@ -43,14 +43,14 @@ extension ViewController: PinterestLayoutDelegate {
   func collectionView(
     _ collectionView: UICollectionView,
     heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {
-    
-    let insets = collectionView.contentInset
-    let imgWidth = collectionView.bounds.width - (insets.left + insets.right)
-    let width = UIImage(named: dataSource[indexPath.row].pic)?.size.width
-    let height = UIImage(named: dataSource[indexPath.row].pic)?.size.height
-    let imgHeight = height! * imgWidth / width!
-    
-    return imgHeight
+//
+//    let imgWidth = collectionView.bounds.width / 2
+//    let width = UIImage(named: dataSource[indexPath.row].pic)?.size.width
+//    let height = UIImage(named: dataSource[indexPath.row].pic)?.size.height
+//    let imgHeight = height! * imgWidth / width!
+//
+//    return imgHeight
+    return (UIImage(named: dataSource[indexPath.row].pic)?.size.height)!
   }
 }
 
